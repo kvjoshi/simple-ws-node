@@ -28,7 +28,15 @@ wss.on("connection", (ws) => {
     });
 
     ws.send("Hello, I am a WebSocket server");
+
+    ws.onerror((err) => {
+        console.log("Error",err);
+    
     });
+    ws.onclose((err) => {
+        console.log("Close onClose",err);
+    });
+});
 wss.on("wsClientError", (err) => {
         console.log("wsCLientError ",err);
     });
