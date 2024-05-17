@@ -7,9 +7,9 @@ const wss = new WebSocketServer({ port: 8080,
  });
 try{
 wss.on("connection", (ws) => {
-    wss.clients.forEach((client) => {
-        console.log(client);
-    });
+    // wss.clients.forEach((client) => {
+    //     console.log(client);
+    // });
     ws.on("upgrade", (request, socket, head) => {
         console.log("upgrade");
     });
