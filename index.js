@@ -22,24 +22,24 @@ wss.on("connection", (ws) => {
     });
     ws.on("error", (err) => {
         console.log(err);
+        
     });
+    ws.on('error', console.error);
     ws.on("unexpected-response", (request, response) => {
         console.log("unexpected-response", request, response);
     });
 
     ws.send("Hello, I am a WebSocket server");
 
-    ws.onerror((err) => {
-        console.log("Error",err);
     
-    });
-    ws.onclose((err) => {
-        console.log("Close onClose",err);
-    });
 });
 wss.on("wsClientError", (err) => {
         console.log("wsCLientError ",err);
     });
+
+wss.on("error", (err) => {
+    console.log("server error ",err);
+});
 }
 catch(err){
     console.log(err);
